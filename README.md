@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # memory-bi-frontend
 
 #### 介绍
@@ -35,3 +36,62 @@ Memory BI智能分析平台
 4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
 5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
 6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+=======
+# MemoryBI 智能分析平台
+
+This project is initialized with [MemoryBI 智能分析平台](https://pro.ant.design). Follow is the quick guide for how to use.
+
+## Environment Prepare
+
+Install `node_modules`:
+
+```bash
+npm install
+```
+
+or
+
+```bash
+yarn
+```
+
+## Provided Scripts
+
+MemoryBI 智能分析平台 provides some useful script to help you quick start and build with web project, code style check and test.
+
+Scripts provided in `package.json`. It's safe to modify or add additional script:
+
+### Start project
+
+```bash
+npm start
+```
+
+### Build project
+
+```bash
+npm run build
+```
+
+### Check code style
+
+```bash
+npm run lint
+```
+
+You can also use script to auto fix some lint error:
+
+```bash
+npm run lint:fix
+```
+
+### Test code
+
+```bash
+npm test
+```
+
+## More
+
+You can view full document on our [official website](https://pro.ant.design). And welcome any feedback in our [github](https://github.com/ant-design/ant-design-pro).
+>>>>>>> fe236f6 (前端框架初始化完成)
