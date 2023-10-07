@@ -11,6 +11,7 @@
  * @doc https://umijs.org/docs/guides/routes
  */
 export default [
+  // 登录页
   {
     path: '/user',
     layout: false,
@@ -22,20 +23,25 @@ export default [
       },
     ],
   },
+  // 欢迎页
   {
     path: '/welcome',
     name: 'welcome',
     icon: 'smile',
     component: './Welcome',
   },
+
+  // 管理员页面
   {
     path: '/admin',
-    name: 'admin',
+    name: '管理员',
     icon: 'crown',
     access: 'canAdmin',
     routes: [
       {
         path: '/admin',
+        name: '二级菜单',
+        icon: 'crown',
         redirect: '/admin/sub-page',
       },
       {
@@ -45,16 +51,20 @@ export default [
       },
     ],
   },
+  // 智能分析页
   {
-    name: 'list.table-list',
-    icon: 'table',
-    path: '/list',
-    component: './TableList',
+    path: '/add_chart',
+    name: '智能分析',
+    icon: 'barChart',
+    component: './AddChart'
   },
+
+  // 根目录
   {
     path: '/',
     redirect: '/welcome',
   },
+  // 404页
   {
     path: '*',
     layout: false,
