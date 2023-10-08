@@ -14,6 +14,7 @@ const AddChart: React.FC = () => {
   const [option, setOption] = useState<any>();
   const [submitting, setSubmitting] = useState<boolean>(false);
 
+
   /**
    * 提交
    * @param values
@@ -35,17 +36,18 @@ const AddChart: React.FC = () => {
       const res = await genChartByAiUsingPOST(params, {}, values.file.file.originFileObj);
       if (!res?.data) {
         message.error('分析失败');
-      } else {
-        message.success('分析成功');
-        const chartOption = JSON.parse(res.data.genChart ?? '');
-        // const chartOption = res.data.genChart
-        if (!chartOption) {
-          throw new Error('图表代码解析错误')
-        } else {
-          setChart(res.data);
-          setOption(chartOption);
-        }
       }
+      message.success('分析成功');
+      const chartOption = JSON.parse(res?.data?.genChart ?? '');
+      // const chartOption = res.data.genChart
+      if (!chartOption) {
+        throw new Error('图表代码解析错误')
+      } else {
+        // 图表信息
+        setChart(res.data);
+        setOption(chartOption);
+      }
+
     } catch (e: any) {
       message.error('分析失败，' + e.message);
     }

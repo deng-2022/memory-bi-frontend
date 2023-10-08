@@ -59,6 +59,14 @@ export default [
     component: './AddChart'
   },
 
+  // 智能分析页
+  {
+    path: '/list_chart',
+    name: '图表列表',
+    icon: 'pieChart',
+    component: './MyChartPage'
+  },
+
   // 根目录
   {
     path: '/',
