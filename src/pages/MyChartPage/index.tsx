@@ -1,5 +1,21 @@
 import {UploadOutlined} from '@ant-design/icons';
-import {Avatar, Button, Card, Col, Divider, Form, Input, List, message, Row, Select, Space, Spin, Upload} from 'antd';
+import {
+  Avatar,
+  Button,
+  Card,
+  Col,
+  Divider,
+  Form,
+  Input,
+  List,
+  message,
+  Result,
+  Row,
+  Select,
+  Space,
+  Spin,
+  Upload
+} from 'antd';
 import TextArea from 'antd/es/input/TextArea';
 import React, {useEffect, useState} from 'react';
 import ReactECharts from 'echarts-for-react';
@@ -93,9 +109,44 @@ const MyChartPage: React.FC = () => {
                 title={item.name}
                 description={item.chartType}
               />
-              {<p>{'分析目标：' + item.goal}</p>}
-              {/*{JSON.stringify(item.genChart)}*/}
-              <ReactECharts option={item.genChart && JSON.parse(item.genChart)}/>
+              <>
+                {
+                  item.status === 'wait' && <>
+                    <Result
+                      status="warning"
+                      title="待生成"
+                      subTitle={item.execMessage ?? '当前图表生成队列繁忙，请耐心等候'}
+                    />
+                  </>
+                }
+                {
+                  item.status === 'running' && <>
+                    <Result
+                      status="info"
+                      title="图表生成中"
+                      subTitle={item.execMessage}
+                    />
+                  </>
+                }
+                {
+                  item.status === 'succeed' && <>
+                    <div style={{marginBottom: 16}}/>
+                    <p>{'分析目标：' + item.goal}</p>
+                    <div style={{marginBottom: 16}}/>
+                    {/*{JSON.stringify(item.genChart)}*/}
+                    <ReactECharts option={item.genChart && JSON.parse(item.genChart)}/>
+                  </>
+                }
+                {
+                  item.status === 'failed' && <>
+                    <Result
+                      status="error"
+                      title="图表生成失败"
+                      subTitle={item.execMessage}
+                    />
+                  </>
+                }
+              </>
             </List.Item>
           </Card>
         )}

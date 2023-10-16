@@ -20,6 +20,7 @@ const AddChart: React.FC = () => {
    * @param values
    */
   const onFinish = async (values: any) => {
+    message.success("请求成功, 请耐心等待图标生成~")
     // 避免重复提交
     if (submitting) {
       return;

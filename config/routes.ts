@@ -51,7 +51,7 @@ export default [
       },
     ],
   },
-  // 智能分析页
+  // 智能分析页(同步)
   {
     path: '/add_chart',
     name: '智能分析',
@@ -59,7 +59,15 @@ export default [
     component: './AddChart'
   },
 
-  // 智能分析页
+  // 智能分析页(异步)
+  {
+    path: '/add_chart_async',
+    name: '智能分析(异步)',
+    icon: 'barChart',
+    component: './AddChartAsync'
+  },
+
+  // 图表列表页
   {
     path: '/list_chart',
     name: '图表列表',
